@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eiken Pre-1 Speaking Practice — PTV English</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & ROOT ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:    #0f1923;
+  --navy2:   #1a2840;
+  --ink:     #1e2d3d;
+  --ink-mid: #3d5166;
+  --ink-dim: #6b8099;
+  --cream:   #f7f4ef;
+  --cream2:  #eee9e0;
+  --cream3:  #e0d9ce;
+  --gold:    #c8962a;
+  --gold-lt: #f0d898;
+  --accent:  #4a3fa5;
+  --accent2: #7b72d4;
+  --teal:    #0f6e56;
+  --teal-lt: #e1f5ee;
+  --white:   #ffffff;
+  --card-r:  14px;
+  --serif: 'Noto Serif JP', Georgia, serif;
+  --sans:  'DM Sans', sans-serif;
+  --mono:  'DM Mono', monospace;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.header-inner {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 56px 32px 52px;
+}
+
+.header-kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-kicker::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1.5px;
+  background: var(--gold);
+}
+
+.header-title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+
+.header-title span {
+  color: var(--gold);
+}
+
+.header-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 300;
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+
+.header-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hbadge {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 13px;
+  border-radius: 99px;
+  border: 1px solid;
+  letter-spacing: 0.04em;
+}
+
+.hbadge-gold  { color: var(--gold);   border-color: rgba(200,150,42,0.45);  background: rgba(200,150,42,0.08); }
+.hbadge-blue  { color: #90aadd;       border-color: rgba(144,170,221,0.35); background: rgba(144,170,221,0.06); }
+.hbadge-teal  { color: #5dcaa5;       border-color: rgba(93,202,165,0.35);  background: rgba(93,202,165,0.06); }
+
+/* ── HOW TO USE BANNER ── */
+.how-to {
+  background: var(--navy2);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.how-to-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.how-to-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+  padding-top: 3px;
+  flex-shrink: 0;
+}
+
+.how-to-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  list-style: none;
+}
+
+.how-to-steps li {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,150,42,0.5);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── MAIN ── */
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+}
+
+.section-heading {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--cream3);
+}
+
+/* ── WORKSHEET GRID ── */
+.worksheet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 52px;
+}
+
+/* ── WORKSHEET CARD ── */
+.ws-card {
+  background: var(--white);
+  border-radius: var(--card-r);
+  border: 1px solid var(--cream3);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+}
+
+.ws-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(15,25,35,0.10);
+}
+
+.ws-card-thumb {
+  height: 6px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.ws-card-thumb.t-community  { background: linear-gradient(90deg, #4a3fa5, #7b72d4); }
+.ws-card-thumb.t-garden     { background: linear-gradient(90deg, #0f6e56, #5dcaa5); }
+.ws-card-thumb.t-library    { background: linear-gradient(90deg, #c8962a, #f0d898); }
+.ws-card-thumb.t-food       { background: linear-gradient(90deg, #0f6e56, #c8962a); }
+.ws-card-thumb.t-bicycle    { background: linear-gradient(90deg, #185fa5, #7b72d4); }
+.ws-card-thumb.t-default    { background: linear-gradient(90deg, #4a3fa5, #5dcaa5); }
+
+.ws-card-body {
+  padding: 20px 22px 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ws-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ws-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent2);
+  letter-spacing: 0.06em;
+}
+
+.ws-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 99px;
+  background: var(--teal-lt);
+  color: var(--teal);
+  letter-spacing: 0.04em;
+}
+
+.ws-title {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.ws-topic {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  flex: 1;
+}
+
+
+.ws-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 22px;
+  border-top: 1px solid var(--cream2);
+  background: var(--cream);
+}
+
+.ws-open-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ws-open-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.ws-features {
+  display: flex;
+  gap: 6px;
+}
+
+.feat-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  title: attr(data-tip);
+}
+
+.feat-dot.timer { background: #e8e6f8; color: var(--accent); }
+.feat-dot.reveal { background: #e1f5ee; color: var(--teal); }
+
+/* ── COMING SOON CARD ── */
+.ws-card.coming-soon {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.ws-card.coming-soon .ws-card-thumb {
+  background: var(--cream3);
+}
+
+.ws-card.coming-soon .ws-open-btn {
+  color: var(--ink-dim);
+}
+
+.coming-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--ink-dim);
+  background: var(--cream2);
+  border: 1px solid var(--cream3);
+  border-radius: 99px;
+  padding: 3px 9px;
+}
+
+/* ── QUICK REFERENCE BOX ── */
+.quick-ref {
+  background: var(--navy);
+  border-radius: var(--card-r);
+  padding: 28px 32px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-ref-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.quick-ref-inner { position: relative; }
+
+.quick-ref-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quick-ref-title::before {
+  content: '';
+  width: 18px;
+  height: 1.5px;
+  background: var(--gold);
+}
+
+.ref-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.ref-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.ref-item-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.ref-item-value {
+  font-size: 14px;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.5;
+}
+
+/* ── TIPS SECTION ── */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 52px;
+}
+
+.tip-card {
+  background: var(--white);
+  border: 1px solid var(--cream3);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.tip-icon {
+  font-size: 20px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.tip-title {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.tip-body {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.6;
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 24px 32px;
+}
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-brand {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-brand span {
+  color: var(--gold);
+  margin-right: 8px;
+}
+
+.footer-copy {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  font-family: var(--mono);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .header-inner { padding: 36px 20px 32px; }
+  .main { padding: 32px 20px 60px; }
+  .how-to-inner { padding: 16px 20px; }
+  .worksheet-grid { grid-template-columns: 1fr; }
+  .quick-ref { padding: 22px 20px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-grid-bg" aria-hidden="true"></div>
+  <div class="header-inner">
+    <div class="header-kicker">PTV English &nbsp;·&nbsp; 英検準1級</div>
+    <h1 class="header-title">Speaking Practice<br><span>Worksheets</span></h1>
+    <p class="header-sub">英検準1級 二次試験対策 — Full narration practice with model answers, timers, and story panel illustrations.</p>
+    <div class="header-badges">
+      <span class="hbadge hbadge-gold">Grade Pre-1 / 準1級</span>
+      <span class="hbadge hbadge-blue">2-min narration</span>
+      <span class="hbadge hbadge-teal">4 discussion questions</span>
+    </div>
+  </div>
+</header>
+
+<!-- HOW TO USE -->
+<div class="how-to">
+  <div class="how-to-inner">
+    <div class="how-to-label">How to use</div>
+    <ol class="how-to-steps">
+      <li><span class="step-num">1</span> Read the topic and study the four panels</li>
+      <li><span class="step-num">2</span> Start the 1-minute preparation timer</li>
+      <li><span class="step-num">3</span> Start the 2-minute narration timer and speak</li>
+      <li><span class="step-num">4</span> Reveal the model narration and compare</li>
+      <li><span class="step-num">5</span> Answer each discussion question, then reveal</li>
+    </ol>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <div class="section-heading">Speaking practice sheets</div>
+
+  <div class="worksheet-grid">
+
+    <!-- 01 -->
+    <a class="ws-card" href="gradep1-speaking-01.html">
+      <div class="ws-card-thumb t-community"></div>
+      <div class="ws-card-body">
+        <div class="ws-card-meta">
+          <span class="ws-num">No. 01</span>
+          <span class="ws-tag">Community</span>
+        </div>
+        <div class="ws-title">The Smartphone Class</div>
+        <div class="ws-topic">A woman volunteers at a community centre and notices elderly visitors struggling with their smartphones. She decides to start a free class to help them.</div>
+
+      </div>
+      <div class="ws-footer">
+        <div class="ws-open-btn">
+          Open worksheet
+          <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </div>
+        <div class="ws-features">
+          <div class="feat-dot timer" title="Timer included">⏱</div>
+          <div class="feat-dot reveal" title="Reveal buttons">👁</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- 02 -->
+    <a class="ws-card" href="gradep1-speaking-02.html">
+      <div class="ws-card-thumb t-garden"></div>
+      <div class="ws-card-body">
+        <div class="ws-card-meta">
+          <span class="ws-num">No. 02</span>
+          <span class="ws-tag">Environment</span>
+        </div>
+        <div class="ws-title">The Community Garden</div>
+        <div class="ws-topic">A man notices an abandoned overgrown lot and organises volunteers to transform it into a thriving community garden — only to discover the city plans to demolish it.</div>
+
+      </div>
+      <div class="ws-footer">
+        <div class="ws-open-btn">
+          Open worksheet
+          <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </div>
+        <div class="ws-features">
+          <div class="feat-dot timer">⏱</div>
+          <div class="feat-dot reveal">👁</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- 03 -->
+    <a class="ws-card" href="gradep1-speaking-03.html">
+      <div class="ws-card-thumb t-library"></div>
+      <div class="ws-card-body">
+        <div class="ws-card-meta">
+          <span class="ws-num">No. 03</span>
+          <span class="ws-tag">Civic action</span>
+        </div>
+        <div class="ws-title">Save Our Library</div>
+        <div class="ws-topic">A woman discovers her local library is closing due to budget cuts. She launches a community petition campaign that ends with the library being saved and reopened.</div>
+
+      </div>
+      <div class="ws-footer">
+        <div class="ws-open-btn">
+          Open worksheet
+          <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </div>
+        <div class="ws-features">
+          <div class="feat-dot timer">⏱</div>
+          <div class="feat-dot reveal">👁</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- 04 -->
+    <a class="ws-card" href="gradep1-speaking-04.html">
+      <div class="ws-card-thumb t-food"></div>
+      <div class="ws-card-body">
+        <div class="ws-card-meta">
+          <span class="ws-num">No. 04</span>
+          <span class="ws-tag">Sustainability</span>
+        </div>
+        <div class="ws-title">The Food Share Programme</div>
+        <div class="ws-topic">A man at a company cafeteria is troubled by the amount of food being thrown away each day. He proposes a programme to donate surplus food to local shelters.</div>
+
+      </div>
+      <div class="ws-footer">
+        <div class="ws-open-btn">
+          Open worksheet
+          <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </div>
+        <div class="ws-features">
+          <div class="feat-dot timer">⏱</div>
+          <div class="feat-dot reveal">👁</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- 05 -->
+    <a class="ws-card" href="gradep1-speaking-05.html">
+      <div class="ws-card-thumb t-bicycle"></div>
+      <div class="ws-card-body">
+        <div class="ws-card-meta">
+          <span class="ws-num">No. 05</span>
+          <span class="ws-tag">Community safety</span>
+        </div>
+        <div class="ws-title">The Stolen Bicycle</div>
+        <div class="ws-topic">A woman returns to find her bicycle stolen from the station. After filing a report and posting flyers, an observant neighbour spots it and the police return it to her.</div>
+
+      </div>
+      <div class="ws-footer">
+        <div class="ws-open-btn">
+          Open worksheet
+          <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </div>
+        <div class="ws-features">
+          <div class="feat-dot timer">⏱</div>
+          <div class="feat-dot reveal">👁</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- COMING SOON placeholder -->
+    <div class="ws-card coming-soon">
+      <div class="ws-card-thumb t-default"></div>
+      <div class="ws-card-body">
+        <div class="ws-card-meta">
+          <span class="ws-num">No. 06</span>
+          <span class="coming-badge">Coming soon</span>
+        </div>
+        <div class="ws-title" style="color: var(--ink-dim);">New Topic</div>
+        <div class="ws-topic" style="color: var(--ink-dim);">More speaking practice sheets are being added regularly. Check back soon.</div>
+      </div>
+      <div class="ws-footer">
+        <div class="ws-open-btn" style="color: var(--ink-dim);">
+          Coming soon
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- QUICK REFERENCE -->
+  <div class="section-heading">Test format reference</div>
+
+  <div class="quick-ref">
+    <div class="quick-ref-bg" aria-hidden="true"></div>
+    <div class="quick-ref-inner">
+      <div class="quick-ref-title">英検準1級 二次試験 / Eiken Pre-1 Speaking Test</div>
+      <div class="ref-grid">
+        <div class="ref-item">
+          <div class="ref-item-label">Preparation</div>
+          <div class="ref-item-value">1 minute<br><span style="font-size:12px;color:rgba(255,255,255,0.4);">Study the panels and topic</span></div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">Narration</div>
+          <div class="ref-item-value">2 minutes<br><span style="font-size:12px;color:rgba(255,255,255,0.4);">Describe all four panels in order</span></div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">Questions</div>
+          <div class="ref-item-value">4 questions<br><span style="font-size:12px;color:rgba(255,255,255,0.4);">No. 1 uses panel 4; Nos. 2–4 are general</span></div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">Scoring</div>
+          <div class="ref-item-value">Pronunciation, vocabulary, grammar, content</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">Starting sentence</div>
+          <div class="ref-item-value">Always given — begin your narration with it exactly</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">Card flip</div>
+          <div class="ref-item-value">After No. 1, turn the card face-down for Nos. 2–4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="section-heading">Speaking tips</div>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <span class="tip-icon">🗓</span>
+      <div class="tip-title">Use time markers</div>
+      <div class="tip-body">Connect panels with phrases like "Two weeks later," "As a result," and "However," to show how the story develops.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">👁</span>
+      <div class="tip-title">Describe what you see</div>
+      <div class="tip-body">Point out characters' expressions and actions in each panel. This shows the examiner you are reading the pictures carefully.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">💬</span>
+      <div class="tip-title">Give reasons</div>
+      <div class="tip-body">For discussion questions, always support your opinion with a reason. Use "because," "so," and "for example" to make your answer stronger.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">⚖️</span>
+      <div class="tip-title">Consider both sides</div>
+      <div class="tip-body">For "Do you agree?" questions, it is fine to say "not completely." Showing you can think about different views often scores well.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">🔄</span>
+      <div class="tip-title">Practise regularly</div>
+      <div class="tip-body">Use the 1-minute and 2-minute timers on every sheet to build confidence under real test conditions. Repeat until it feels natural.</div>
+    </div>
+    <div class="tip-card">
+      <span class="tip-icon">📝</span>
+      <div class="tip-title">Review model answers</div>
+      <div class="tip-body">After answering, reveal the model and compare. Note vocabulary and sentence patterns you can borrow in your next practice session.</div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><span>PTV English</span>英検準1級 Speaking Practice Materials</div>
+    <div class="footer-copy">無断転載・複製を禁じます。</div>
+  </div>
+</footer>
+
+</body>
+</html>
